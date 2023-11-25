@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 
 import { Menu, Modal } from 'antd'
 
-import loginPages from '@/common/menu_pages/loginPages'
+import loginPages from '@/common/menuPages/loginPages'
 import { useAppSelector } from '@/redux/hooks'
 import { setOpenLogin } from '@/redux/slice/loginSlice'
 

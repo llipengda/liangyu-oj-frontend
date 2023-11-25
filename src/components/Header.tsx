@@ -16,7 +16,7 @@ import { Header as AntdHeader } from 'antd/es/layout/layout'
 import { GithubOutlined } from '@ant-design/icons'
 
 import { GITHUB_URL } from '@/common/constants'
-import pages from '@/common/menu_pages/pages'
+import pages from '@/common/menuPages/pages'
 import { useAppDispatch, useAppSelector } from '@/redux/hooks'
 import { setOpenLogin } from '@/redux/slice/loginSlice'
 import { toggleDarkMode } from '@/redux/slice/themeSlice'
