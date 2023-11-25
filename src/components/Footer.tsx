@@ -10,13 +10,11 @@ export default function Footer() {
     <AntdFooter style={{ textAlign: 'center' }}>
       LYOJ &copy; {new Date().getFullYear()}{' '}
       {AUTHORS.map((author, index) => (
-        <>
+        <span key={index}>
           &nbsp;
-          <Link key={index} to={author.link}>
-            {author.name}
-          </Link>
+          <Link to={author.link}>{author.name}</Link>
           &nbsp;
-        </>
+        </span>
       ))}
     </AntdFooter>
   )

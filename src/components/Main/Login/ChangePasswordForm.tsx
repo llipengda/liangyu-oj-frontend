@@ -112,9 +112,9 @@ export default function ChangePasswordForm() {
       </Form.Item>
       <Form.Item>
         <Button
+          className='w-full'
           type='primary'
           htmlType='submit'
-          style={{ width: '100%' }}
           loading={loading}
         >
           重置密码
