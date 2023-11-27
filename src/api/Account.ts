@@ -12,7 +12,7 @@ const login = async (email: string, password: string) => {
 }
 
 const signUp = async (email: string, password: string, nickname: string) => {
-  const data = await axios.post<Result<void>>('/account/signup', {
+  const data = await axios.post<Result<void>>('/account/signUp', {
     email,
     password,
     nickname
