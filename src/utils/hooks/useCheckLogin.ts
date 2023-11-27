@@ -11,7 +11,7 @@ const useCheckLogin = () => {
   const dispatch = useAppDispatch()
 
   useEffect(() => {
-    if (needLogin && !isFirstRender) {
+    if (needLogin && isFirstRender) {
       dispatch(setOpenLogin(true))
       setIsFirstRender(false)
     }
