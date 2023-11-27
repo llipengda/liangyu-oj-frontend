@@ -2,6 +2,7 @@ import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 import { LoginResponse } from '@/types/Account'
 import { User } from '@/types/User'
+import { message } from 'antd'
 
 const initToken: string = ''
 
@@ -35,6 +36,7 @@ const userSlice = createSlice({
       state.needLogin = false
     },
     logout: state => {
+      message.success('注销成功')
       state.token = initToken
       state.user = initUser
       state.needLogin = true
@@ -46,4 +48,4 @@ const userSlice = createSlice({
 })
 
 export default userSlice.reducer
-export const { login, logout } = userSlice.actions
+export const { login, logout, setUser } = userSlice.actions

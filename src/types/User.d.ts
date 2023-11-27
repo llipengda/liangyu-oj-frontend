@@ -13,3 +13,11 @@ export type User = {
   submitted: number
   solved: number
 }
+
+export type UpdateUserParams = {
+  nickname: string
+  name: string
+  avatar: string
+  motto: string
+  grade: string
+}
