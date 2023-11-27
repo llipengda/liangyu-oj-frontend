@@ -87,10 +87,10 @@ export default function RegisterForm() {
     remember: boolean
   }) => {
     if (values.remember) {
-      localStorage.setItem('nickname', btoa(values.nickname))
+      localStorage.setItem('email', btoa(values.email))
       localStorage.setItem('password', btoa(values.password))
     } else {
-      localStorage.removeItem('nickname')
+      localStorage.removeItem('email')
       localStorage.removeItem('password')
     }
     await register(values.email, values.password, values.nickname)
