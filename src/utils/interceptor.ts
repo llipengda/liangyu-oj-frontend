@@ -28,6 +28,7 @@ axios.interceptors.response.use(
       if (await tryRelogin()) {
         return axios.request(error.request)
       }
+      return Promise.reject(error)
     } else if (error.response?.status === 403) {
       console.error('403')
     }

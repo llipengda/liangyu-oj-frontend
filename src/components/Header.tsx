@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 
 import {
+  App,
   Avatar,
   Button,
   Col,
@@ -35,6 +36,8 @@ export default function Header() {
 
   const [themeIcon, setThemeIcon] = useState(isDark ? '☀️' : '🌒')
 
+  const { message } = App.useApp()
+
   const handleChangeTheme = () => {
     dispatch(toggleDarkMode())
     setThemeIcon(isDark ? '🌒' : '☀️')
@@ -45,6 +48,7 @@ export default function Header() {
   }
 
   const onClickLogout = () => {
+    message.success('登出成功')
     dispatch(logout())
   }
 

@@ -1,5 +1,3 @@
-import { message } from 'antd'
-
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 import { LoginResponse } from '@/types/Account'
@@ -37,7 +35,6 @@ const userSlice = createSlice({
       state.needLogin = false
     },
     logout: state => {
-      message.success('登出成功')
       state.token = initToken
       state.user = initUser
       state.needLogin = true
