@@ -6,6 +6,7 @@ import {
   Button,
   Col,
   Menu,
+  Popconfirm,
   Row,
   Space,
   Tooltip,
@@ -107,9 +108,16 @@ export default function Header() {
               登录
             </Button>
           ) : (
-            <Button type='primary' onClick={onClickLogout}>
-              注销
-            </Button>
+            <Popconfirm
+              title='您确定要登出吗？'
+              description='这将会清除您的登录状态。'
+              okText='确定'
+              cancelText='取消'
+              onConfirm={onClickLogout}
+              placement='bottomRight'
+            >
+              <Button type='primary'>登出</Button>
+            </Popconfirm>
           )}
         </Col>
       </Row>
