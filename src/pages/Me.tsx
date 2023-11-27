@@ -41,7 +41,8 @@ export default function Me() {
           </div>
           <div className='text-gray-400'>注册于{user.createTime}</div>
           <Divider />
-          <div className='text-gray-400'>已解出 {user.solved} 个问题</div>
+          <div className='text-gray-400'>提交 {user.solved} 次</div>
+          <div className='text-gray-400'>解决 {user.solved} 个问题</div>
         </Card>
       </div>
     </div>

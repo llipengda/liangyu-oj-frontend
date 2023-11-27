@@ -1,25 +1,26 @@
+import { message } from 'antd'
+
 import { PayloadAction, createSlice } from '@reduxjs/toolkit'
 
 import { LoginResponse } from '@/types/Account'
 import { User } from '@/types/User'
-import { message } from 'antd'
 
 const initToken: string = ''
 
 const initUser: User = {
   id: -1,
   password: '',
-  email: '',
-  nickname: '',
-  name: '',
+  email: '未登录',
+  nickname: '未登录',
+  name: '未登录',
   avatar: '',
   motto: '',
   grade: '',
   type: 1,
-  createTime: '',
+  createTime: '未登录',
   deleteTime: '',
-  submitted: -1,
-  solved: -1
+  submitted: 0,
+  solved: 0
 }
 
 const userSlice = createSlice({
@@ -36,7 +37,7 @@ const userSlice = createSlice({
       state.needLogin = false
     },
     logout: state => {
-      message.success('注销成功')
+      message.success('登出成功')
       state.token = initToken
       state.user = initUser
       state.needLogin = true
