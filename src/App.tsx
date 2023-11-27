@@ -4,12 +4,15 @@ import zhCN from 'antd/locale/zh_CN'
 import Footer from '@/components/Footer.tsx'
 import Header from '@/components/Header.tsx'
 import Main from '@/components/Main.tsx'
+import useCheckLogin from '@/utils/hooks/useCheckLogin'
 import useTheme from '@/utils/hooks/useTheme'
 
 import './App.css'
 
 export default function App() {
   const theme = useTheme()
+
+  useCheckLogin()
 
   return (
     <ConfigProvider locale={zhCN} theme={theme}>
