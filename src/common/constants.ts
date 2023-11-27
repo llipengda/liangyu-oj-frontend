@@ -1,4 +1,4 @@
-export const BASE_URL = 'http://47.117.171.54/:8080'
+export const BASE_URL = 'https://api.pdli.site'
 export const PRIMARY_COLOR = '#a0c8a5'
 export const DARK_THEME_HEADER_COLOR = '#001529'
 export const DARK_THEME_FOOTER_COLOR = '#001529'
