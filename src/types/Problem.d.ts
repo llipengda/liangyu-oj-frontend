@@ -22,3 +22,13 @@ export type TryProblemResult = {
   message: string
   time: number
 }
+
+export type Submition = {
+  id: number
+  problemId: number
+  userId: number
+  submitTime: string
+  code: string
+  result: string
+  time: number
+}

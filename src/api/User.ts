@@ -1,6 +1,8 @@
-import { Result } from "@/types/Result"
-import { UpdateUserParams, User } from "@/types/User"
-import axios from "axios"
+import axios from 'axios'
+
+import { Submition as Submission } from '@/types/Problem'
+import { Result } from '@/types/Result'
+import { UpdateUserParams, User } from '@/types/User'
 
 const info = async () => {
   const data = await axios.get<Result<User>>('/user/info')
@@ -12,9 +14,15 @@ const update = async (user: UpdateUserParams) => {
   return data.data.data
 }
 
+const getSubmissions = async () => {
+  const data = await axios.get<Result<Submission[]>>('/user/getRecentSubmission')
+  return data.data.data
+}
+
 const UserApi = {
   info,
-  update
+  update,
+  getSubmissions
 }
 
 export default UserApi

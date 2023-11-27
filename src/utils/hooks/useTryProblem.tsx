@@ -64,7 +64,7 @@ const useTryProblem = () => {
       <div>
         <div className='mt-4 mb-4'>
           <span
-            className='p-1 rounded-md w-fit px-2 text-white'
+            className='p-1 rounded-md w-fit px-2 text-white font-bold'
             style={{ background: color }}
           >
             {loading ? 'RUNNING' : res.status}

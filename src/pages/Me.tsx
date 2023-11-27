@@ -6,14 +6,15 @@ import { EditTwoTone } from '@ant-design/icons'
 
 import { PRIMARY_COLOR } from '@/common/constants'
 import { useAppSelector } from '@/redux/hooks'
+import SubmitionList from '@/components/Main/Problem/SubmissionList'
 
 export default function Me() {
   const user = useAppSelector(state => state.user.user)
   const { Title, Text } = Typography
 
   return (
-    <div className='flex flex-row'>
-      <div className='flex flex-col basis-8/12'>
+    <div className='flex md:flex-row flex-col'>
+      <div className='flex flex-col basis-8/12 md:mr-10'>
         <Title level={1} className='!mb-4'>
           {user.nickname}
           <EditTwoTone twoToneColor={PRIMARY_COLOR} className='text-2xl ml-1' />
@@ -23,12 +24,11 @@ export default function Me() {
         <Text type='secondary'>{user.motto || '还没有个性签名~'}</Text>
         <div className='mt-5'>
           <Title level={3}>近期提交</Title>
-          {/* TODO：近期提交 */}
-          <Text type='secondary'>还没有提交记录~</Text>
+          <SubmitionList />
         </div>
       </div>
-      <div className='flex flex-col justify-center align-middle'>
-        <Card className='mt-12'>
+      <div className='flex flex-col align-middle'>
+        <Card className='md:mt-20 mt-10'>
           <Avatar size={256} shape='square'>
             {user.avatar ? (
               <img src={user.avatar} alt='avatar' />
