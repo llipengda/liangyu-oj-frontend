@@ -64,7 +64,7 @@ const useTryProblem = () => {
       <div>
         <div className='mt-4 mb-4'>
           <span
-            className='p-1 rounded-md w-fit px-2 text-white font-bold'
+            className='p-1 rounded-md w-fit px-2 text-white font-bold font-mono'
             style={{ background: color }}
           >
             {loading ? 'RUNNING' : res.status}
@@ -73,7 +73,11 @@ const useTryProblem = () => {
             {msg}
           </span>
         </div>
-        {!!res.time && <div>耗时：{res.time * 1000}ms</div>}
+        {!!res.time && (
+          <div>
+            用时：{res.time * 1000}ms&nbsp;&nbsp;&nbsp;内存：{res.memory}MB
+          </div>
+        )}
         {!!res.message && (
           <pre
             className={`relative font-mono ${

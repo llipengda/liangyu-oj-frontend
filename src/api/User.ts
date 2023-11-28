@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { Submition as Submission } from '@/types/Problem'
+import { Submission } from '@/types/Problem'
 import { Result } from '@/types/Result'
 import { UpdateUserParams, User } from '@/types/User'
 
@@ -15,7 +15,9 @@ const update = async (user: UpdateUserParams) => {
 }
 
 const getSubmissions = async () => {
-  const data = await axios.get<Result<Submission[]>>('/user/getRecentSubmission')
+  const data = await axios.get<Result<Submission[]>>(
+    '/user/getRecentSubmission'
+  )
   return data.data.data
 }
 
