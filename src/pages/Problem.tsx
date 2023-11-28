@@ -27,6 +27,7 @@ export default function Problem() {
               <Link
                 to={`/problem/${problem.id}`}
                 style={{ color: PRIMARY_COLOR }}
+                key={problem.id}
               >
                 <div
                   key={problem.id}

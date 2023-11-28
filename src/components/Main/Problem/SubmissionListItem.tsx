@@ -14,11 +14,16 @@ export default function SubmissionListItem({ item }: { item: Submission }) {
       style={{ background: darkMode ? '#333' : '#e5e5e5' }}
     >
       <div
-        className='rounded-md w-fit px-2 text-white font-bold font-mono mr-6'
-        style={{ background: item.result === 'AC' ? 'green' : 'red' }}
+        className='rounded-md px-2 text-white font-bold font-mono mr-6 text-center w-10'
+        style={{
+          background: item.result === 'AC' ? 'green' : 'red',
+        }}
       >
         {item.result}
       </div>
+      <span className='mr-8 md:mr-4 md:ml-6' style={{ minWidth: '8%', maxWidth: '8%' }}>
+        {item.userName}
+      </span>
       <span className='mr-2'>{item.submitTime}</span>
       <Link
         style={{ color: PRIMARY_COLOR, minWidth: '12%' }}

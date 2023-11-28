@@ -35,6 +35,7 @@ export type Submission = {
   result: string
   time: number
   memory: number
+  userName: string
 }
 
 export type Chapter = {

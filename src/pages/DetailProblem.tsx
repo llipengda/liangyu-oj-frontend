@@ -129,16 +129,18 @@ export default function DetailProblem() {
         </div>
       </div>
       <Divider />
-      <div>
-        <h2 className='mb-4'>最近提交</h2>
+      {submissions.length !== 0 && (
         <div>
-          {submissions.map(item => (
-            <div key={item.id}>
-              <SubmissionListItem item={item} />
-            </div>
-          ))}
+          <h2 className='mb-4'>最近提交</h2>
+          <div>
+            {submissions.map(item => (
+              <div key={item.id}>
+                <SubmissionListItem item={item} />
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
