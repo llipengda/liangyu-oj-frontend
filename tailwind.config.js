@@ -5,7 +5,8 @@ export default {
     minHeight: {
       '1/4': '25vh',
       '1/2': '50vh',
-      '3/4': '75vh'
+      '3/4': '75vh',
+      '3/5': '60vh',
     },
     extend: {}
   },

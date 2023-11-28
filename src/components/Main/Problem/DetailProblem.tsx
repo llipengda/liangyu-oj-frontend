@@ -7,6 +7,7 @@ import { Editor } from '@monaco-editor/react'
 import { useAppSelector } from '@/redux/hooks'
 import useProblem from '@/utils/hooks/useProblem'
 import useTryProblem from '@/utils/hooks/useTryProblem'
+import sleep from '@/utils/sleep'
 
 export default function DetailProblem() {
   const problem = useProblem()
@@ -33,10 +34,14 @@ export default function DetailProblem() {
 
   const handleSubmit = async () => {
     await tryProblem(problem.id, value)
+    await sleep(100)
+    document
+      .getElementById('status')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'end', inline: 'nearest' })
   }
 
   return (
-    <div className='flex xl:flex-row flex-col'>
+    <div className='flex xl:flex-row flex-col' id='status'>
       <div className='basis-2/5 xl:mr-10 xl:min-h-3/4 mb-5 flex-shrink-0'>
         <h1 className='text-3xl font-bold'>{problem.title}</h1>
         <div className='text-gray-400 mt-2'>
@@ -81,9 +86,9 @@ export default function DetailProblem() {
         <div>{problem.hint}</div>
       </div>
       <div className='basis-3/5'>
-        <Card className='h-full' bodyStyle={{ minHeight: '75vh' }}>
+        <Card className='min-h-3/4' bodyStyle={{ minHeight: '75vh' }}>
           <Editor
-            height='80vh'
+            height='75vh'
             width='100%'
             defaultLanguage='java'
             defaultValue={problem.reservedCode}
