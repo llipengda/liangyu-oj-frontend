@@ -8,6 +8,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 
 import store from '@/redux/store.ts'
 import '@/utils/interceptor.ts'
+import '@/utils/monacoConfig.ts'
 
 import App from './App.tsx'
 

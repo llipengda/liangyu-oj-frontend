@@ -4,7 +4,6 @@ import { Button, Card } from 'antd'
 
 import { Editor } from '@monaco-editor/react'
 
-import Loading from '@/components/Loading'
 import { useAppSelector } from '@/redux/hooks'
 import useProblem from '@/utils/hooks/useProblem'
 import useTryProblem from '@/utils/hooks/useTryProblem'
@@ -88,7 +87,7 @@ export default function DetailProblem() {
             width='100%'
             defaultLanguage='java'
             defaultValue={problem.reservedCode}
-            loading={<Loading />}
+            loading='加载中...'
             value={value}
             onChange={value => setValue(value || '')}
             theme={darkMode ? 'vs-dark' : 'vs-light'}
