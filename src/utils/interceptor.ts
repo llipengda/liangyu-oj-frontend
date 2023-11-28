@@ -35,11 +35,10 @@ axios.interceptors.response.use(
           }
         })
       }
-      return Promise.reject(error)
     } else if (error.response?.status === 403) {
       console.error('403')
     }
     message.error(error.response?.data?.msg || error.message)
-    return Promise.reject(error)
+    return Promise.resolve({ data: { code: 500, msg: error.message }})
   }
 )
