@@ -21,9 +21,21 @@ const getSubmissions = async () => {
   return data.data.data
 }
 
+const upload = async (file: File) => {
+  const formData = new FormData()
+  formData.append('file', file)
+  const data = await axios.post<Result<string>>('/user/image', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data'
+    }
+  })
+  return data.data.data
+}
+
 const UserApi = {
   info,
   update,
+  upload,
   getSubmissions
 }
 

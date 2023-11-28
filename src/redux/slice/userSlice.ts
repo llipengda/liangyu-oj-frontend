@@ -41,9 +41,12 @@ const userSlice = createSlice({
     },
     setUser: (state, action: PayloadAction<User>) => {
       state.user = action.payload
+    },
+    setUserAvatar: (state, action: PayloadAction<string>) => {
+      state.user.avatar = action.payload
     }
   }
 })
 
 export default userSlice.reducer
-export const { login, logout, setUser } = userSlice.actions
+export const { login, logout, setUser, setUserAvatar } = userSlice.actions
