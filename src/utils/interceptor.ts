@@ -5,6 +5,7 @@ import axios, { AxiosError, AxiosResponse } from 'axios'
 import { BASE_URL } from '@/common/constants'
 import store from '@/redux/store'
 import { Result } from '@/types/Result'
+
 import tryRelogin from './tryRelogin'
 
 axios.interceptors.request.use(config => {
@@ -26,7 +27,13 @@ axios.interceptors.response.use(
   async (error: AxiosError<Result<any>>) => {
     if (error.response?.status === 401) {
       if (await tryRelogin()) {
-        return axios.request(error.request)
+        return axios.request({
+          ...error.config,
+          headers: {
+            ...error.config?.headers,
+            Authorization: 'Bearer ' + store.getState().user.token
+          }
+        })
       }
       return Promise.reject(error)
     } else if (error.response?.status === 403) {
