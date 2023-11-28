@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Navigate } from 'react-router-dom'
 
 import { Button, Card, Divider } from 'antd'
 
@@ -32,7 +33,7 @@ export default function DetailProblem() {
   }
 
   if (!problem) {
-    return <div>问题不存在</div>
+    return <Navigate to='/error/404' />
   }
 
   const handleReset = () => {

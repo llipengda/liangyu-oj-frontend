@@ -9,15 +9,13 @@ const Error = lazy(() => import('@/pages/Error'))
 
 const routes: RouteObject[] = [
   { path: 'home', element: <Home /> },
-  {
-    path: 'problem',
-    element: <Problem />
-  },
+  { path: 'problem', element: <Problem /> },
   { path: 'problem/:id', element: <DetailProblem /> },
   { path: 'error/:id', element: <Error /> },
   { path: 'error', element: <Navigate to='/error/404' /> },
   { path: 'me', element: <Me /> },
-  { path: '/', element: <Navigate to='/home' /> }
+  { path: '/', element: <Navigate to='/home' /> },
+  { path: '*', element: <Navigate to='/error/404' /> }
 ]
 
 export default routes
