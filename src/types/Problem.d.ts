@@ -15,6 +15,7 @@ export type Problem = {
   memoryLimit: number
   accepted: number
   submitted: number
+  difficulty: number
 }
 
 export type TryProblemResult = {
@@ -34,4 +35,22 @@ export type Submission = {
   result: string
   time: number
   memory: number
+}
+
+export type Chapter = {
+  chapter: number
+  chapter_name: string
+}
+
+export type ChapterProblem = {
+  problems: BriefProblem[]
+} & Chapter
+
+export type BriefProblem = {
+  id: number
+  title: string
+  createTime: string
+  accepted: number
+  submitted: number
+  difficulty: number
 }

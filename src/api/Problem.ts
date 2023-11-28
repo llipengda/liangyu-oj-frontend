@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 import { Page } from '@/types/Page'
-import { Problem, Submission, TryProblemResult } from '@/types/Problem'
+import { BriefProblem, Chapter, Problem, Submission, TryProblemResult } from '@/types/Problem'
 import { Result } from '@/types/Result'
 
 const get = async (id: number) => {
@@ -35,10 +35,26 @@ const getSubmissions = async (id: number, page: number, pageSize: number) => {
   return data.data.data
 }
 
+const getChapters = async () => {
+  const data = await axios.get<Result<Chapter[]>>('/pro/getChapterList')
+  return data.data.data
+}
+
+const getBriefList = async (chapter: number) => {
+  const data = await axios.get<Result<BriefProblem[]>>('/pro/getBriefList', {
+    params: {
+      chapter
+    }
+  })
+  return data.data.data
+}
+
 const ProblemApi = {
   get,
   submit,
-  getSubmissions
+  getSubmissions,
+  getBriefList,
+  getChapters
 }
 
 export default ProblemApi

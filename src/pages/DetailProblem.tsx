@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react'
 
-import { Button, Card } from 'antd'
+import { Button, Card, Divider } from 'antd'
 
 import { Editor } from '@monaco-editor/react'
 
 import Loading from '@/components/Loading'
+import SubmissionListItem from '@/components/Main/Problem/SubmissionListItem'
 import { useAppSelector } from '@/redux/hooks'
+import generateDiffculty from '@/utils/generateDiffculty'
 import useProblem from '@/utils/hooks/useProblem'
 import useTryProblem from '@/utils/hooks/useTryProblem'
 import sleep from '@/utils/sleep'
-
-import SubmissionListItem from './SubmissionListItem'
 
 export default function DetailProblem() {
   const [problem, submissions, problemLoading, update] = useProblem()
@@ -19,9 +19,9 @@ export default function DetailProblem() {
 
   useEffect(() => {
     if (problem) {
-      setValue(problem.reservedCode)
+      setValue(submissions?.[0]?.code || problem.reservedCode)
     }
-  }, [problem])
+  }, [problem, submissions])
 
   const { tryProblem, loading, Status } = useTryProblem()
 
@@ -52,7 +52,17 @@ export default function DetailProblem() {
     <div>
       <div className='flex xl:flex-row flex-col' id='status'>
         <div className='basis-2/5 xl:mr-10 xl:min-h-3/4 mb-5 flex-shrink-0'>
-          <h1 className='text-3xl font-bold'>{problem.title}</h1>
+          <h1 className='text-3xl font-bold flex'>
+            {problem.title}
+            <div
+              className='rounded-md p-1 ml-2 my-auto text-white font-bold font-mono px-2 text-sm'
+              style={{
+                background: generateDiffculty(problem.difficulty)[1]
+              }}
+            >
+              {generateDiffculty(problem.difficulty)[0]}
+            </div>
+          </h1>
           <div className='text-gray-400 mt-2'>
             时间限制：{problem.timeLimit}s&nbsp;&nbsp;&nbsp;内存限制：
             {problem.memoryLimit}MB
@@ -118,6 +128,7 @@ export default function DetailProblem() {
           </Card>
         </div>
       </div>
+      <Divider />
       <div>
         <h2 className='mb-4'>最近提交</h2>
         <div>
