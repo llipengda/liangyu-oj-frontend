@@ -67,7 +67,7 @@ export default function Header() {
         <Col md={7} sm={8} xs={12}>
           <Link to='/'>
             <Title
-              className='p-0 m-4 text-center md:text-left'
+              className='p-0 m-4 text-center md:text-left font-mono'
               level={4}
               style={{
                 color: PRIMARY_COLOR
